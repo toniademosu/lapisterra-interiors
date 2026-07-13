@@ -1,0 +1,37 @@
+/* ---------- fonts ---------- */
+@font-face{font-family:"Clash Display";src:url("../fonts/ClashDisplay-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Clash Display";src:url("../fonts/ClashDisplay-Semibold.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Walkway";src:url("../fonts/Walkway SemiBold.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Walkway";src:url("../fonts/Walkway Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+
+/* ---------- tokens ---------- */
+:root{
+  --terra:#754436;--terra-dark:#543126;--sand:#D3C7AD;--gold:#CEA167;
+  --cream:#ECEBE7;--olive:#6C6751;--navy:#28374A;--ink:#121212;
+  --font-display:"Clash Display","Avenir Next Condensed","Arial Narrow",sans-serif;
+  --font-body:"Walkway","Century Gothic","Futura","Trebuchet MS",sans-serif;
+  --pad:clamp(1.25rem,4vw,4rem);
+  --h-hero:clamp(3.2rem,9.5vw,8.5rem);
+  --h-section:clamp(2.4rem,6vw,5.5rem);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+.container{max-width:1400px;margin-inline:auto;padding-inline:var(--pad)}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;opacity:.65}
+h1,h2,h3{font-family:var(--font-display);font-weight:500;text-transform:uppercase;line-height:1.02;letter-spacing:.01em}
+
+/* underlined arrow link, as in reference */
+.line-link{display:inline-flex;align-items:center;gap:2.5rem;padding-bottom:.45rem;border-bottom:1px solid currentColor;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;transition:gap .3s ease}
+.line-link:hover{gap:3.2rem}
+
+/* scroll reveal primitives (JS adds .in) */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  .reveal-img{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.6,.05,.2,1)}
+  .reveal-img.in{clip-path:inset(0 0 0 0)}
+}
