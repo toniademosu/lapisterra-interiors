@@ -1,3 +1,4 @@
+import {loadProperties,featured,cardHTML} from './properties-data.js';
 function initNav(){
   const nav=document.querySelector('.nav');
   const burger=document.getElementById('navBurger');
@@ -28,5 +29,14 @@ function initCarousel(){
   document.getElementById('prevSlide').addEventListener('click',()=>show(i-1));
   document.getElementById('nextSlide').addEventListener('click',()=>show(i+1));
 }
-initNav();initReveals();initCarousel();
+async function initFeatured(){
+  const grid=document.getElementById('featuredGrid');
+  if(!grid)return;
+  try{
+    const list=await loadProperties();
+    grid.innerHTML=featured(list).map(cardHTML).join('');
+    initReveals();
+  }catch{/* fallback message already in DOM */}
+}
+initNav();initReveals();initCarousel();initFeatured();
 export {initNav,initReveals,initCarousel};

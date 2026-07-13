@@ -66,3 +66,16 @@
 .svc p{font-size:.9rem;opacity:.8}
 .svc:last-child{grid-column:1/-1}
 @media (max-width:900px){.services-inner{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}}
+
+/* properties section */
+.props{padding-block:clamp(4rem,10vw,8rem);display:grid;gap:2.5rem}
+.props h2{font-size:var(--h-section);color:var(--terra-dark)}
+.props-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.prop-card{position:relative;display:grid;gap:0}
+.prop-card img{height:340px;width:100%;object-fit:cover}
+.prop-tag{position:absolute;top:1rem;left:1rem;background:var(--cream);color:var(--terra-dark);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;padding:.4rem .8rem}
+.prop-body{display:grid;gap:.2rem;padding:1.2rem 0}
+.prop-body strong{font-family:var(--font-display);text-transform:uppercase;font-size:1.15rem;color:var(--terra-dark)}
+.prop-body em{font-style:normal;font-size:.85rem;opacity:.65}
+.prop-body b{font-size:.95rem;color:var(--terra)}
+@media (max-width:900px){.props-grid{grid-template-columns:1fr}}
