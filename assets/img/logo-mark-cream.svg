@@ -1,6 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="#ECEBE7" stroke-width="8" stroke-linejoin="miter" stroke-linecap="square">
-  <path d="M10 98 V46 L49 5 L60 46 V98"/>
-  <path d="M23 90 V55 L34 40"/>
-  <path d="M70 98 V50 L84 22 L96 50 V98"/>
-  <path d="M78 98 V66 H88 V80"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="#ECEBE7" fill-rule="evenodd">
+  <path d="
+    M8,88 L8,47 L49,14 L54,18 L54,88 Z
+    M17,88 L17,47 L46,21 L45,88 Z
+    M27,88 L27,55 L34,49 L34,88 Z
+    M65,88 L65,27 L92,47 L92,88 Z
+    M73,47 L84,58 L84,85 L66,85 L66,76 L73,76 Z
+  "/>
 </svg>
