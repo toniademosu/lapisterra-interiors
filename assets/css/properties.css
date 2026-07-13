@@ -1,0 +1,8 @@
+.page-nav{position:sticky}
+.props-page{padding-block:8rem 5rem;display:grid;gap:2rem}
+.props-page h1{font-size:var(--h-section);color:var(--terra-dark)}
+.filter{display:flex;gap:.6rem}
+.filter button{border:1px solid var(--terra);background:none;color:var(--terra);padding:.55rem 1.3rem;font:inherit;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s}
+.filter button.is-on,.filter button:hover{background:var(--terra);color:var(--cream)}
+.props-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+@media (max-width:900px){.props-grid{grid-template-columns:1fr}}
