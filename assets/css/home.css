@@ -27,3 +27,11 @@
   .nav.open .nav-burger span:last-child{transform:translateY(-4px) rotate(-45deg)}
   .hero-intro{margin-left:0}
 }
+
+/* about section */
+.about{display:grid;grid-template-columns:minmax(300px,460px) 1fr;gap:4rem;padding-block:clamp(5rem,12vw,10rem)}
+.about-copy{display:grid;gap:2rem;align-content:center}
+.about-copy h2{font-size:var(--h-section);color:var(--terra-dark)}
+.about-media{display:grid;grid-template-columns:1.6fr 1fr;gap:1.5rem;align-items:start}
+.about-media img:last-child{margin-top:4rem}
+@media (max-width:900px){.about{grid-template-columns:1fr}.about-media img:last-child{margin-top:0}}
