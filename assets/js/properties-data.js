@@ -12,7 +12,7 @@ export function formatPrice(p){
 }
 export function cardHTML(p){
   return `<a class="prop-card reveal" href="property.html?id=${encodeURIComponent(p.id)}">
-    <img src="${p.images[0]}" alt="${p.title}">
+    <span class="frame"><img src="${p.images[0]}" alt="${p.title}"></span>
     <span class="prop-tag">${p.type==='sale'?'For Sale':'Shortlet'}</span>
     <span class="prop-body"><strong>${p.title}</strong><em>${p.location}</em><b>${formatPrice(p)}</b></span>
   </a>`;
