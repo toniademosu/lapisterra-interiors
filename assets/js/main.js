@@ -38,5 +38,24 @@ async function initFeatured(){
     initReveals();
   }catch{/* fallback message already in DOM */}
 }
-initNav();initReveals();initCarousel();initFeatured();
-export {initNav,initReveals,initCarousel};
+function initForm(){
+  const form=document.querySelector('.contact-form');
+  if(!form)return;
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const msg=form.querySelector('.form-msg');
+    if(!form.reportValidity())return;
+    if(form.querySelector('[name="_gotcha"]').value){
+      msg.textContent='Thank you — we’ll be in touch shortly.';
+      form.reset();
+      return;
+    }
+    try{
+      const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+      msg.textContent=res.ok?'Thank you — we’ll be in touch shortly.':'Something went wrong. Please email us directly.';
+      if(res.ok)form.reset();
+    }catch{msg.textContent='Something went wrong. Please email us directly.';}
+  });
+}
+initNav();initReveals();initCarousel();initFeatured();initForm();
+export {initNav,initReveals,initCarousel,initForm};
