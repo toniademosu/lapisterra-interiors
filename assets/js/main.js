@@ -41,6 +41,11 @@ async function initFeatured(){
 function initForm(){
   const form=document.querySelector('.contact-form');
   if(!form)return;
+  const property=new URLSearchParams(location.search).get('property');
+  if(property){
+    const textarea=form.querySelector('textarea');
+    if(textarea&&!textarea.value)textarea.value=`I'm interested in "${property}". `;
+  }
   form.addEventListener('submit',async e=>{
     e.preventDefault();
     const msg=form.querySelector('.form-msg');

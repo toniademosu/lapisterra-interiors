@@ -29,8 +29,11 @@
 .slide-meta{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;opacity:.6}
 .slide-note{font-size:.85rem;opacity:.7}
 .carousel-ctrl{display:flex;align-items:center;gap:1rem;justify-content:flex-end}
-.carousel-ctrl button{width:52px;height:52px;border-radius:50%;border:1px solid var(--terra);background:none;color:var(--terra);font-size:1.1rem;cursor:pointer;transition:background .3s,color .3s}
+.carousel-ctrl button{width:52px;height:52px;border-radius:50%;border:1px solid var(--terra);background:none;color:var(--terra);font-size:1.1rem;cursor:pointer}
 .carousel-ctrl button:hover{background:var(--terra);color:var(--cream)}
+@media (prefers-reduced-motion: no-preference){
+  .carousel-ctrl button{transition:background .3s,color .3s}
+}
 @media (max-width:900px){.slide{grid-template-columns:1fr}.slide img{height:300px}}
 
 /* services section */

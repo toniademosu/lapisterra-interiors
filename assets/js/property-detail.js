@@ -2,7 +2,8 @@ import {loadProperties,findById,formatPrice} from './properties-data.js';
 const root=document.getElementById('detail');
 const id=new URLSearchParams(location.search).get('id');
 function notFound(){
-  root.innerHTML=`<div class="detail-missing"><h1>Listing not found</h1>
+  root.innerHTML=`<a class="crumb" href="properties.html">← All properties</a>
+  <div class="detail-missing"><h1>Listing not found</h1>
   <p>This property may have been sold or taken off the market.</p>
   <a class="line-link" href="properties.html">Back to properties <span aria-hidden="true">→</span></a></div>`;
 }
@@ -12,6 +13,7 @@ try{
   else{
     document.title=`${p.title} — LapisTerra Group`;
     root.innerHTML=`
+      <a class="crumb" href="properties.html">← All properties</a>
       <p class="eyebrow">${p.type==='sale'?'For Sale':'Shortlet'} · ${p.location}</p>
       <h1>${p.title}</h1>
       <div class="detail-gallery">
@@ -27,7 +29,7 @@ try{
         </div>
         <div class="detail-cta">
           <p>Interested in this property?</p>
-          <a class="line-link" href="index.html#contact">Enquire now <span aria-hidden="true">→</span></a>
+          <a class="line-link" href="index.html?property=${encodeURIComponent(p.title)}#contact">Enquire now <span aria-hidden="true">→</span></a>
         </div>
       </div>`;
     document.querySelector('.thumbs').addEventListener('click',e=>{

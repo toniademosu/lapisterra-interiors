@@ -31,7 +31,10 @@ h1,h2,h3{font-family:var(--font-display);font-weight:500;text-transform:uppercas
 
 /* nav: shared by all pages (transparent-over-hero → cream when scrolled on the
    homepage; permanently cream via .page-nav on interior pages) */
-.nav{position:fixed;inset:0 0 auto 0;z-index:50;color:var(--cream);transition:background .35s ease,color .35s ease}
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;color:var(--cream)}
+@media (prefers-reduced-motion: no-preference){
+  .nav{transition:background .35s ease,color .35s ease}
+}
 .nav-inner{display:flex;align-items:center;gap:2.5rem;padding:1.1rem var(--pad);border-bottom:1px solid color-mix(in srgb,currentColor 35%,transparent)}
 .nav-links{display:flex;gap:2.2rem;margin-inline:auto}
 .nav-links a,.nav-contact{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;opacity:.9}
@@ -42,16 +45,22 @@ h1,h2,h3{font-family:var(--font-display);font-weight:500;text-transform:uppercas
 @media (max-width:768px){
   .nav-links,.nav-contact{display:none}
   .nav-burger{display:flex;flex-direction:column;gap:6px;background:none;border:0;margin-left:auto;cursor:pointer}
-  .nav-burger span{width:26px;height:2px;background:currentColor;transition:transform .3s}
+  .nav-burger span{width:26px;height:2px;background:currentColor}
   .nav.open{background:var(--terra-dark)}
   .nav.open .nav-links{display:flex;position:fixed;inset:0;background:var(--terra-dark);flex-direction:column;justify-content:center;align-items:center;gap:2rem;font-size:1.2rem}
   .nav.open .nav-burger span:first-child{transform:translateY(4px) rotate(45deg)}
   .nav.open .nav-burger span:last-child{transform:translateY(-4px) rotate(-45deg)}
 }
+@media (max-width:768px) and (prefers-reduced-motion: no-preference){
+  .nav-burger span{transition:transform .3s}
+}
 
 /* underlined arrow link, as in reference */
-.line-link{display:inline-flex;align-items:center;gap:2.5rem;padding-bottom:.45rem;border-bottom:1px solid currentColor;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;transition:gap .3s ease}
+.line-link{display:inline-flex;align-items:center;gap:2.5rem;padding-bottom:.45rem;border-bottom:1px solid currentColor;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase}
 .line-link:hover{gap:3.2rem}
+@media (prefers-reduced-motion: no-preference){
+  .line-link{transition:gap .3s ease}
+}
 
 /* scroll reveal primitives (JS adds .in) */
 @media (prefers-reduced-motion: no-preference){
