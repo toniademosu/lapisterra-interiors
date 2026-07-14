@@ -68,8 +68,9 @@
 @media (max-width:900px){.journal-grid{grid-template-columns:repeat(2,1fr)}.journal-grid figure{margin-top:0!important}}
 
 /* contact section */
-.contact{display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:4rem;padding-block:clamp(4rem,10vw,8rem)}
-.contact h2{font-size:var(--h-section);color:var(--terra-dark)}
+.contact{display:grid;grid-template-columns:minmax(300px,1fr) 1.15fr;gap:clamp(3rem,6vw,6rem);padding-block:clamp(4rem,10vw,8rem)}
+.contact h2{font-size:clamp(2.2rem,4.2vw,4.2rem);color:var(--terra-dark)}
+.contact-form{padding-top:.4rem}
 .contact-copy{display:grid;gap:1.6rem;align-content:start}
 .contact-form{display:grid;gap:1.8rem;align-content:start}
 .contact-form label{display:grid;gap:.4rem;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
