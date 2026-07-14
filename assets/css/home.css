@@ -5,13 +5,25 @@
   .hero-bg{animation:hero-settle 5.5s cubic-bezier(.2,.6,.2,1) both}
   @keyframes hero-settle{from{transform:scale(1.07)}to{transform:scale(1)}}
 }
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,13,12,.68) 0%,rgba(56,33,26,.52) 55%,rgba(56,33,26,.94) 92%,#38211A 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,10,9,.74) 0%,rgba(48,27,21,.6) 55%,rgba(48,27,21,.95) 92%,#301B15 100%)}
 .hero-content{position:relative;z-index:1;width:100%;padding-top:6rem}
 .hero-title{font-size:var(--h-hero);display:flex;flex-direction:column}
 .hero-title span:nth-child(2){align-self:center}
 .hero-title span:nth-child(3){align-self:flex-end;margin-right:8vw;color:var(--gold)}
 .hero-intro{max-width:340px;margin:2.5rem 0 0 52%;display:grid;gap:1.6rem;font-size:.95rem}
 @media (max-width:768px){.hero-intro{margin-left:0}}
+@media (prefers-reduced-motion: no-preference){
+  /* opening cascade: headline lines land one by one, then the intro */
+  .hero-title span:nth-child(1){transition-delay:.15s}
+  .hero-title span:nth-child(2){transition-delay:.34s}
+  .hero-title span:nth-child(3){transition-delay:.53s}
+  .hero-intro{transition-delay:.75s}
+  /* copy blocks cascade: eyebrow, headline, paragraph, link */
+  .about-copy .reveal:nth-child(2),.services-copy .reveal:nth-child(2),.contact-copy .reveal:nth-child(2),
+  .portfolio>.reveal:nth-child(2),.props>.reveal:nth-child(2),.journal>.reveal:nth-child(2){transition-delay:.12s}
+  .about-copy .reveal:nth-child(3),.services-copy .reveal:nth-child(3),.contact-copy .reveal:nth-child(3){transition-delay:.24s}
+  .about-copy .reveal:nth-child(4),.services-copy .reveal:nth-child(4){transition-delay:.36s}
+}
 
 /* about section — brown room lit by gold and a navy shadow */
 .about{display:grid;grid-template-columns:minmax(300px,460px) 1fr;gap:4rem;padding-block:clamp(5rem,12vw,10rem);
@@ -48,6 +60,12 @@
 @media (prefers-reduced-motion: no-preference){
   .slide.is-active .frame img{animation:slide-in 1.2s cubic-bezier(.2,.6,.2,1) both}
   @keyframes slide-in{from{transform:scale(1.07);opacity:.4}to{transform:scale(1);opacity:1}}
+  /* project text rises line by line with each slide */
+  .slide.is-active .slide-body>*{animation:rise .7s cubic-bezier(.2,.65,.2,1) both}
+  .slide.is-active .slide-body>*:nth-child(2){animation-delay:.08s}
+  .slide.is-active .slide-body>*:nth-child(3){animation-delay:.16s}
+  .slide.is-active .slide-body>*:nth-child(4){animation-delay:.24s}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}}
 }
 .slide-body{display:grid;gap:1.2rem;align-content:center}
 .slide-body h3{font-size:clamp(1.6rem,3vw,2.6rem);color:var(--cream)}
@@ -108,6 +126,10 @@
 .journal-grid figure:nth-child(4) .frame{height:300px}
 .journal-grid figcaption{font-family:var(--font-display);text-transform:uppercase;font-size:1rem;color:var(--sand);margin-top:1rem}
 .journal-grid figcaption::before{content:"";display:block;width:2.2rem;height:1px;background:var(--gold);margin-bottom:.6rem;opacity:.7}
+@media (prefers-reduced-motion: no-preference){
+  .journal-grid figcaption::before{transition:width .45s cubic-bezier(.2,.65,.2,1)}
+  .journal-grid figure:hover figcaption::before{width:3.6rem}
+}
 @media (max-width:900px){
   .journal-grid{grid-template-columns:repeat(2,1fr)}
   .journal-grid figure{margin-top:0!important}
