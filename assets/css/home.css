@@ -1,11 +1,11 @@
 /* hero */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;color:var(--cream)}
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;color:var(--cream);overflow:hidden}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 @media (prefers-reduced-motion: no-preference){
   .hero-bg{animation:hero-settle 5.5s cubic-bezier(.2,.6,.2,1) both}
   @keyframes hero-settle{from{transform:scale(1.07)}to{transform:scale(1)}}
 }
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.62) 0%,rgba(71,42,31,.5) 55%,rgba(71,42,31,.92) 92%,#472A1F 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,13,12,.68) 0%,rgba(56,33,26,.52) 55%,rgba(56,33,26,.94) 92%,#38211A 100%)}
 .hero-content{position:relative;z-index:1;width:100%;padding-top:6rem}
 .hero-title{font-size:var(--h-hero);display:flex;flex-direction:column}
 .hero-title span:nth-child(2){align-self:center}
@@ -13,8 +13,11 @@
 .hero-intro{max-width:340px;margin:2.5rem 0 0 52%;display:grid;gap:1.6rem;font-size:.95rem}
 @media (max-width:768px){.hero-intro{margin-left:0}}
 
-/* about section */
-.about{display:grid;grid-template-columns:minmax(300px,460px) 1fr;gap:4rem;padding-block:clamp(5rem,12vw,10rem)}
+/* about section — brown room lit by gold and a navy shadow */
+.about{display:grid;grid-template-columns:minmax(300px,460px) 1fr;gap:4rem;padding-block:clamp(5rem,12vw,10rem);
+  background:radial-gradient(46vmax 46vmax at 84% 8%,rgba(206,161,103,.13),transparent 62%),
+             radial-gradient(42vmax 42vmax at 10% 96%,rgba(26,37,48,.5),transparent 60%),
+             var(--room)}
 .about-copy{display:grid;gap:2rem;align-content:center}
 .about-copy h2{font-size:var(--h-section);color:var(--cream)}
 .about-copy p:not(.eyebrow){color:color-mix(in srgb,var(--cream) 82%,transparent)}
@@ -23,7 +26,7 @@
 .about-media{display:grid;grid-template-columns:repeat(12,1fr);align-items:start}
 .about-media .reveal-img:first-child{grid-column:1/10}
 .about-media .reveal-img:first-child img{height:clamp(420px,44vw,620px)}
-.about-media .reveal-img:last-child{grid-column:7/13;margin-top:-24%;z-index:1;border:10px solid var(--room,var(--room-brown))}
+.about-media .reveal-img:last-child{grid-column:7/13;margin-top:-24%;z-index:1;border:9px solid var(--sand)}
 .about-media .reveal-img:last-child img{height:clamp(180px,19vw,260px)}
 .about-media img{width:100%;object-fit:cover}
 @media (max-width:900px){
@@ -32,8 +35,11 @@
   .about-media .reveal-img:last-child{grid-column:4/13;margin-top:-18%}
 }
 
-/* portfolio carousel */
-.portfolio{padding-block:clamp(4rem,10vw,8rem);display:grid;gap:3rem}
+/* portfolio carousel — ink gallery warmed by terracotta and olive light */
+.portfolio{padding-block:clamp(4rem,10vw,8rem);display:grid;gap:3rem;
+  background:radial-gradient(44vmax 44vmax at 12% 18%,rgba(117,68,54,.32),transparent 62%),
+             radial-gradient(40vmax 40vmax at 88% 84%,rgba(108,103,81,.26),transparent 60%),
+             var(--room)}
 .portfolio h2{font-size:var(--h-section);color:var(--cream)}
 .carousel{position:relative;min-height:480px}
 .slide{position:absolute;inset:0;display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;opacity:0;transition:opacity .6s ease;pointer-events:none}
@@ -56,8 +62,11 @@
 }
 @media (max-width:900px){.slide{grid-template-columns:1fr}.slide .frame{height:300px}}
 
-/* services section: the olive room */
-.services{position:relative;color:var(--cream);padding-block:clamp(4rem,10vw,8rem);background:var(--room-olive)}
+/* services section: the olive room, gold above, navy shadow below */
+.services{position:relative;color:var(--cream);padding-block:clamp(4rem,10vw,8rem);
+  background:radial-gradient(46vmax 46vmax at 8% 12%,rgba(206,161,103,.11),transparent 62%),
+             radial-gradient(48vmax 48vmax at 92% 88%,rgba(26,37,48,.55),transparent 62%),
+             var(--room-olive)}
 .services-inner{position:relative;display:grid;grid-template-columns:minmax(280px,400px) 1fr;gap:4rem}
 .services-copy{display:grid;gap:1.8rem;align-content:start}
 .services-copy h2{font-size:var(--h-section)}
@@ -69,8 +78,11 @@
 .svc:last-child{grid-column:1/-1}
 @media (max-width:900px){.services-inner{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}}
 
-/* properties section */
-.props{padding-block:clamp(4rem,10vw,8rem);display:grid;gap:2.5rem}
+/* properties section — navy room with terracotta dusk */
+.props{padding-block:clamp(4rem,10vw,8rem);display:grid;gap:2.5rem;
+  background:radial-gradient(44vmax 44vmax at 88% 10%,rgba(117,68,54,.34),transparent 62%),
+             radial-gradient(38vmax 38vmax at 8% 92%,rgba(206,161,103,.09),transparent 58%),
+             var(--room)}
 .props h2{font-size:var(--h-section);color:var(--cream)}
 .props-fallback a{border-bottom:1px solid currentColor}
 .props-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
@@ -79,10 +91,14 @@
 
 /* journal section */
 .journal{padding-block:clamp(4rem,10vw,8rem);display:grid;gap:3rem}
-.journal h2{font-size:var(--h-section);color:var(--terra)}
-.journal .eyebrow{color:var(--terra)}
+.journal h2{font-size:var(--h-section);color:var(--sand)}
+/* journal — dark umber room; prints mounted on sand mats */
+.journal{background:radial-gradient(42vmax 42vmax at 14% 16%,rgba(211,199,173,.07),transparent 60%),
+                    radial-gradient(44vmax 44vmax at 86% 88%,rgba(117,68,54,.3),transparent 62%),
+                    var(--room)}
 /* varied editorial rhythm: alternating tall/short frames on a staggered baseline */
 .journal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;align-items:start}
+.journal-grid .frame{border:8px solid var(--sand);background:var(--sand)}
 .journal-grid figure:nth-child(1) .frame{height:400px}
 .journal-grid figure:nth-child(2){margin-top:4.5rem}
 .journal-grid figure:nth-child(2) .frame{height:270px}
@@ -90,16 +106,19 @@
 .journal-grid figure:nth-child(3) .frame{height:340px}
 .journal-grid figure:nth-child(4){margin-top:6rem}
 .journal-grid figure:nth-child(4) .frame{height:300px}
-.journal-grid figcaption{font-family:var(--font-display);text-transform:uppercase;font-size:1rem;color:var(--terra-dark);margin-top:1rem}
-.journal-grid figcaption::before{content:"";display:block;width:2.2rem;height:1px;background:var(--terra);margin-bottom:.6rem;opacity:.6}
+.journal-grid figcaption{font-family:var(--font-display);text-transform:uppercase;font-size:1rem;color:var(--sand);margin-top:1rem}
+.journal-grid figcaption::before{content:"";display:block;width:2.2rem;height:1px;background:var(--gold);margin-bottom:.6rem;opacity:.7}
 @media (max-width:900px){
   .journal-grid{grid-template-columns:repeat(2,1fr)}
   .journal-grid figure{margin-top:0!important}
   .journal-grid figure .frame{height:240px!important}
 }
 
-/* contact section */
-.contact{display:grid;grid-template-columns:minmax(300px,1fr) 1.15fr;gap:clamp(3rem,6vw,6rem);padding-block:clamp(4rem,10vw,8rem)}
+/* contact section — brown room, gold light over the form */
+.contact{display:grid;grid-template-columns:minmax(300px,1fr) 1.15fr;gap:clamp(3rem,6vw,6rem);padding-block:clamp(4rem,10vw,8rem);
+  background:radial-gradient(44vmax 44vmax at 86% 14%,rgba(206,161,103,.12),transparent 60%),
+             radial-gradient(40vmax 40vmax at 6% 88%,rgba(57,54,43,.55),transparent 60%),
+             var(--room)}
 .contact h2{font-size:clamp(2.2rem,4.2vw,4.2rem);color:var(--cream)}
 .contact-copy p:not(.eyebrow){color:color-mix(in srgb,var(--cream) 82%,transparent)}
 .contact-form{padding-top:.4rem}

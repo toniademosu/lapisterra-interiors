@@ -8,10 +8,10 @@
 :root{
   --terra:#754436;--terra-dark:#543126;--sand:#D3C7AD;--gold:#CEA167;
   --cream:#ECEBE7;--olive:#6C6751;--navy:#28374A;--ink:#121212;
-  /* room palette: each scroll section is one material block from the brand's
-     colour-proportion sheet */
-  --room-brown:#472A1F;--room-ink:#141311;--room-olive:#4C483A;
-  --room-navy:#212F3F;--room-sand:#D3C7AD;--room-footer:#2B1712;
+  /* room palette: dim material blocks from the brand's colour-proportion
+     sheet; other palette colours glow inside each room as ambient light */
+  --room-brown:#38211A;--room-ink:#0E0D0C;--room-olive:#39362B;
+  --room-navy:#1A2530;--room-umber:#231711;--room-sand:#D3C7AD;--room-footer:#1D0F0B;
   --font-display:"Clash Display","Avenir Next Condensed","Arial Narrow",sans-serif;
   --font-body:"Walkway","Century Gothic","Futura","Trebuchet MS",sans-serif;
   --pad:clamp(1.25rem,4vw,4rem);
@@ -24,12 +24,29 @@ body{font-family:var(--font-body);color:var(--cream);background:var(--room-ink);
 
 /* full-bleed colour room: sections are .container elements, so the block
    colour is extended sideways and clipped to the viewport */
-.room{box-shadow:0 0 0 100vmax var(--room);clip-path:inset(0 -100vmax);background:var(--room)}
+.room{position:relative;box-shadow:0 0 0 100vmax var(--room);clip-path:inset(0 -100vmax);background:var(--room)}
 .room-brown{--room:var(--room-brown)}
 .room-ink{--room:var(--room-ink)}
 .room-olive{--room:var(--room-olive)}
 .room-navy{--room:var(--room-navy)}
+.room-umber{--room:var(--room-umber)}
 .room-sand{--room:var(--room-sand);color:var(--ink)}
+
+/* keyboard focus */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* lamp cursor (cursor.js adds .has-cursor on capable devices) */
+html.has-cursor body{cursor:none}
+html.has-cursor input,html.has-cursor textarea,html.has-cursor select{cursor:text}
+.cursor-dot,.cursor-glow{position:fixed;top:0;left:0;pointer-events:none;will-change:transform;border-radius:50%}
+.cursor-dot{z-index:1001;width:8px;height:8px;margin:-4px 0 0 -4px;background:var(--gold);transition:width .25s,height .25s,margin .25s,background .25s,border .25s}
+.cursor-dot.is-link{width:44px;height:44px;margin:-22px 0 0 -22px;background:transparent;border:1px solid var(--gold)}
+.cursor-glow{z-index:1000;width:56vmin;height:56vmin;margin:-28vmin 0 0 -28vmin;background:radial-gradient(circle,rgba(206,161,103,.17),rgba(206,161,103,.05) 42%,transparent 66%);mix-blend-mode:screen}
+.cursor-glow.pulse{animation:cursor-pulse .55s ease-out}
+@keyframes cursor-pulse{35%{scale:1.3}100%{scale:1}}
+
+/* dim imagery: pictures sit low-lit and brighten under attention */
+.frame img,.reveal-img img,.detail-gallery img{filter:brightness(.84) saturate(.97)}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 
@@ -91,9 +108,11 @@ h1,h2,h3{font-family:var(--font-display);font-weight:500;text-transform:uppercas
   .stagger>*:nth-child(3){transition-delay:.24s}
   .stagger>*:nth-child(4){transition-delay:.36s}
   .stagger>*:nth-child(5){transition-delay:.48s}
-  /* quiet hover zooms inside clipped frames */
-  .frame img{transition:transform .9s cubic-bezier(.2,.6,.2,1)}
-  .prop-card:hover .frame img,figure:hover .frame img,.reveal-img:hover img{transform:scale(1.045)}
+  /* quiet hover zooms inside clipped frames; light returns under the lamp */
+  .frame img{transition:transform .9s cubic-bezier(.2,.6,.2,1),filter .9s ease}
+  .reveal-img img{transition:clip-path 1.1s cubic-bezier(.6,.05,.2,1),transform .9s cubic-bezier(.2,.6,.2,1),filter .9s ease}
+  .prop-card:hover .frame img,figure:hover .frame img,.reveal-img:hover img{transform:scale(1.045);filter:brightness(1) saturate(1)}
+  .slide.is-active .frame img{filter:brightness(.95) saturate(1)}
 }
 
 /* property card, shared by home featured grid + properties listing page */
@@ -107,7 +126,9 @@ h1,h2,h3{font-family:var(--font-display);font-weight:500;text-transform:uppercas
 .prop-body b{font-size:.95rem;color:var(--gold)}
 
 /* footer + marquee: shared by all pages */
-.footer{background:var(--room-footer);color:var(--cream);padding-top:4rem;overflow:hidden}
+.footer{color:var(--cream);padding-top:4rem;overflow:hidden;
+  background:radial-gradient(50vmax 40vmax at 50% 110%,rgba(206,161,103,.1),transparent 60%),
+             var(--room-footer)}
 .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2.5rem;padding-bottom:3.5rem}
 .footer-grid nav,.footer-grid div{display:grid;gap:.5rem;align-content:start;font-size:.9rem}
 .footer-grid a:hover{color:var(--gold)}
