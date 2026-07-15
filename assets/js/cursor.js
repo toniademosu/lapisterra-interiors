@@ -9,6 +9,7 @@ if (fine && motion) {
   dot.className = 'cursor-dot';
   document.body.append(glow, dot);
   let x = innerWidth / 2, y = innerHeight / 2, gx = x, gy = y;
+  const walls = document.querySelectorAll('.wall-text');
   addEventListener('pointermove', e => {
     x = e.clientX; y = e.clientY;
     dot.style.transform = `translate(${x}px,${y}px)`;
@@ -16,6 +17,13 @@ if (fine && motion) {
   (function loop() {
     gx += (x - gx) * .09; gy += (y - gy) * .09;
     glow.style.transform = `translate(${gx}px,${gy}px)`;
+    for (const w of walls) {
+      const r = w.getBoundingClientRect();
+      if (r.bottom > -200 && r.top < innerHeight + 200) {
+        w.style.setProperty('--wx', (gx - r.left).toFixed(1) + 'px');
+        w.style.setProperty('--wy', (gy - r.top).toFixed(1) + 'px');
+      }
+    }
     requestAnimationFrame(loop);
   })();
   addEventListener('pointerdown', () => {

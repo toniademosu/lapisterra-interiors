@@ -25,6 +25,21 @@
   .about-copy .reveal:nth-child(4),.services-copy .reveal:nth-child(4){transition-delay:.36s}
 }
 
+/* hidden inscriptions: brand texts written on the room walls, visible only
+   where the lamp's light falls (cursor.js drives --wx/--wy per element) */
+.wall-text{position:absolute;z-index:0;pointer-events:none;user-select:none;max-width:420px;
+  -webkit-mask-image:radial-gradient(circle 24vmin at var(--wx,-999px) var(--wy,-999px),#000 30%,rgba(0,0,0,.5) 65%,transparent 100%);
+  mask-image:radial-gradient(circle 24vmin at var(--wx,-999px) var(--wy,-999px),#000 30%,rgba(0,0,0,.5) 65%,transparent 100%)}
+.wall-text h4{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:1.3rem;color:var(--gold);margin-bottom:.7rem}
+.wall-text p{font-size:.92rem;line-height:1.75;color:var(--sand)}
+.wall-mission{left:var(--pad);bottom:6%}
+.wall-promise{right:var(--pad);top:9%;max-width:300px}
+.wall-vision{left:var(--pad);bottom:8%;max-width:380px}
+.wall-strategy{right:var(--pad);top:10%;max-width:360px}
+.wall-story{left:var(--pad);top:7%;max-width:300px}
+.wall-values{left:var(--pad);bottom:7%;max-width:400px}
+@media (max-width:900px){.wall-text{display:none}}
+
 /* about section — brown room lit by gold and a navy shadow */
 .about{display:grid;grid-template-columns:minmax(300px,460px) 1fr;gap:4rem;padding-block:clamp(5rem,12vw,10rem);
   background:radial-gradient(46vmax 46vmax at 84% 8%,rgba(206,161,103,.13),transparent 62%),
