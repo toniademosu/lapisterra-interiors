@@ -32,12 +32,13 @@
   mask-image:radial-gradient(circle 24vmin at var(--wx,-999px) var(--wy,-999px),#000 30%,rgba(0,0,0,.5) 65%,transparent 100%)}
 .wall-text h4{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:1.15rem;color:var(--gold);margin-bottom:.6rem}
 .wall-text p{font-size:.88rem;line-height:1.7;color:var(--sand)}
-/* placed only in zones no content ever reaches (section padding bands / free corners) */
+/* inscriptions live in the large permanently-empty zone beside each
+   left-aligned headline (top-right), or the free band under short copy */
 .wall-mission{left:var(--pad);bottom:1.5rem}
-.wall-promise{left:var(--pad);bottom:1.5rem;max-width:320px}
+.wall-promise{right:var(--pad);top:11%;max-width:300px}
 .wall-vision{left:var(--pad);bottom:1.25rem;max-width:380px}
-.wall-strategy{right:var(--pad);top:12%;max-width:300px}
-.wall-story{left:var(--pad);bottom:1.25rem;max-width:340px}
+.wall-strategy{right:var(--pad);top:11%;max-width:300px}
+.wall-story{right:var(--pad);top:11%;max-width:300px}
 .wall-values{left:var(--pad);bottom:1.5rem;max-width:400px}
 @media (max-width:1200px){.wall-text{display:none}}
 
