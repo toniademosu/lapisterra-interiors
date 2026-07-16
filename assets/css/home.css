@@ -106,11 +106,13 @@
 .services-copy{display:grid;gap:1.8rem;align-content:start}
 .services-copy h2{font-size:var(--h-section)}
 .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-.svc{background:var(--cream);color:var(--ink);padding:2rem;display:grid;gap:1rem;align-content:start}
-.svc span{font-size:.8rem;opacity:.55}
-.svc h3{font-size:1.35rem;color:var(--terra-dark)}
-.svc p{font-size:.9rem;opacity:.8}
+.svc{background:color-mix(in srgb,var(--cream) 6%,transparent);border:1px solid color-mix(in srgb,var(--sand) 22%,transparent);color:var(--cream);padding:2rem;display:grid;gap:1rem;align-content:start;backdrop-filter:blur(2px)}
+.svc span{font-size:.8rem;color:var(--gold);letter-spacing:.15em}
+.svc h3{font-size:1.35rem;color:var(--sand)}
+.svc p{font-size:.9rem;color:color-mix(in srgb,var(--cream) 78%,transparent)}
 .svc:last-child{grid-column:1/-1}
+.svc:hover{border-color:color-mix(in srgb,var(--gold) 55%,transparent)}
+@media (prefers-reduced-motion: no-preference){.svc{transition:transform .5s cubic-bezier(.2,.65,.2,1),border-color .4s ease}}
 @media (max-width:900px){.services-inner{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}}
 
 /* process — deep brown with a navy dusk; numbers earn their place: a real sequence */
