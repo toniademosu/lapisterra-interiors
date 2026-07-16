@@ -10,8 +10,10 @@
   --cream:#ECEBE7;--olive:#6C6751;--navy:#28374A;--ink:#121212;
   /* room palette: dim material blocks from the brand's colour-proportion
      sheet; other palette colours glow inside each room as ambient light */
-  --room-brown:#301B15;--room-ink:#0B0A09;--room-olive:#2F2C23;
-  --room-navy:#151E28;--room-umber:#1D130D;--room-sand:#D3C7AD;--room-footer:#170C08;
+  /* one material: the brand's deep brown, in close values — olive/navy/sand/gold
+     appear only as light and accents within it */
+  --room-brown:#301B15;--room-ink:#150E08;--room-deep:#241610;
+  --room-umber:#1D130D;--room-footer:#170C08;
   --font-display:"Clash Display","Avenir Next Condensed","Arial Narrow",sans-serif;
   --font-body:"Walkway","Century Gothic","Futura","Trebuchet MS",sans-serif;
   --pad:clamp(1.25rem,4vw,4rem);
@@ -27,10 +29,8 @@ body{font-family:var(--font-body);color:var(--cream);background:var(--room-ink);
 .room{position:relative;box-shadow:0 0 0 100vmax var(--room);clip-path:inset(0 -100vmax);background:var(--room)}
 .room-brown{--room:var(--room-brown)}
 .room-ink{--room:var(--room-ink)}
-.room-olive{--room:var(--room-olive)}
-.room-navy{--room:var(--room-navy)}
+.room-deep{--room:var(--room-deep)}
 .room-umber{--room:var(--room-umber)}
-.room-sand{--room:var(--room-sand);color:var(--ink)}
 
 /* keyboard focus */
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
@@ -116,24 +116,12 @@ h1,h2,h3{font-family:var(--font-display);font-weight:500;text-transform:uppercas
   /* quiet hover zooms inside clipped frames; light returns under the lamp */
   .frame img{transition:transform .9s cubic-bezier(.2,.6,.2,1),filter .9s ease}
   .reveal-img img{transition:clip-path 1.1s cubic-bezier(.6,.05,.2,1),transform .9s cubic-bezier(.2,.6,.2,1),filter .9s ease}
-  .prop-card:hover .frame img,figure:hover .frame img,.reveal-img:hover img{transform:scale(1.045);filter:brightness(1) saturate(1)}
+  figure:hover .frame img,.reveal-img:hover img{transform:scale(1.045);filter:brightness(1) saturate(1)}
   .slide.is-active .frame img{filter:brightness(.95) saturate(1)}
   /* cards lift toward the light */
-  .svc,.prop-card{transition:transform .5s cubic-bezier(.2,.65,.2,1)}
-  .svc:hover,.prop-card:hover{transform:translateY(-6px)}
-  .prop-body strong{transition:color .35s ease}
-  .prop-card:hover .prop-body strong{color:var(--gold)}
+  .svc{transition:transform .5s cubic-bezier(.2,.65,.2,1)}
+  .svc:hover{transform:translateY(-6px)}
 }
-
-/* property card, shared by home featured grid + properties listing page */
-/* dark-room treatment: cards sit on navy (home + listing pages) */
-.prop-card{position:relative;display:grid;gap:0}
-.prop-card .frame{height:340px}
-.prop-tag{position:absolute;top:1rem;left:1rem;background:var(--gold);color:var(--ink);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;padding:.4rem .8rem}
-.prop-body{display:grid;gap:.2rem;padding:1.2rem 0}
-.prop-body strong{font-family:var(--font-display);text-transform:uppercase;font-size:1.15rem;color:var(--cream)}
-.prop-body em{font-style:normal;font-size:.85rem;color:var(--sand);opacity:.75}
-.prop-body b{font-size:.95rem;color:var(--gold)}
 
 /* footer + marquee: shared by all pages */
 .footer{color:var(--cream);padding-top:4rem;overflow:hidden;

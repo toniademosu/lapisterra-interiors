@@ -1,4 +1,3 @@
-import {loadProperties,featured,cardHTML} from './properties-data.js';
 function initNav(){
   const nav=document.querySelector('.nav');
   const burger=document.getElementById('navBurger');
@@ -29,23 +28,9 @@ function initCarousel(){
   document.getElementById('prevSlide').addEventListener('click',()=>show(i-1));
   document.getElementById('nextSlide').addEventListener('click',()=>show(i+1));
 }
-async function initFeatured(){
-  const grid=document.getElementById('featuredGrid');
-  if(!grid)return;
-  try{
-    const list=await loadProperties();
-    grid.innerHTML=featured(list).map(cardHTML).join('');
-    initReveals();
-  }catch{/* fallback message already in DOM */}
-}
 function initForm(){
   const form=document.querySelector('.contact-form');
   if(!form)return;
-  const property=new URLSearchParams(location.search).get('property');
-  if(property){
-    const textarea=form.querySelector('textarea');
-    if(textarea&&!textarea.value)textarea.value=`I'm interested in "${property}". `;
-  }
   form.addEventListener('submit',async e=>{
     e.preventDefault();
     const msg=form.querySelector('.form-msg');
@@ -62,5 +47,5 @@ function initForm(){
     }catch{msg.textContent='Something went wrong. Please email us directly.';}
   });
 }
-initNav();initReveals();initCarousel();initFeatured();initForm();
+initNav();initReveals();initCarousel();initForm();
 export {initNav,initReveals,initCarousel,initForm};

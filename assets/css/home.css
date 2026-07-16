@@ -30,15 +30,16 @@
 .wall-text{position:absolute;z-index:0;pointer-events:none;user-select:none;max-width:420px;
   -webkit-mask-image:radial-gradient(circle 24vmin at var(--wx,-999px) var(--wy,-999px),#000 30%,rgba(0,0,0,.5) 65%,transparent 100%);
   mask-image:radial-gradient(circle 24vmin at var(--wx,-999px) var(--wy,-999px),#000 30%,rgba(0,0,0,.5) 65%,transparent 100%)}
-.wall-text h4{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:1.3rem;color:var(--gold);margin-bottom:.7rem}
-.wall-text p{font-size:.92rem;line-height:1.75;color:var(--sand)}
-.wall-mission{left:var(--pad);bottom:6%}
-.wall-promise{right:var(--pad);top:9%;max-width:300px}
-.wall-vision{left:var(--pad);bottom:8%;max-width:380px}
-.wall-strategy{right:var(--pad);top:10%;max-width:360px}
-.wall-story{left:var(--pad);top:7%;max-width:300px}
-.wall-values{left:var(--pad);bottom:7%;max-width:400px}
-@media (max-width:900px){.wall-text{display:none}}
+.wall-text h4{font-family:var(--font-display);font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:1.15rem;color:var(--gold);margin-bottom:.6rem}
+.wall-text p{font-size:.88rem;line-height:1.7;color:var(--sand)}
+/* placed only in zones no content ever reaches (section padding bands / free corners) */
+.wall-mission{left:var(--pad);bottom:1.5rem}
+.wall-promise{left:var(--pad);bottom:1.5rem;max-width:320px}
+.wall-vision{left:var(--pad);bottom:1.25rem;max-width:380px}
+.wall-strategy{right:var(--pad);top:12%;max-width:300px}
+.wall-story{left:var(--pad);bottom:1.25rem;max-width:340px}
+.wall-values{left:var(--pad);bottom:1.5rem;max-width:400px}
+@media (max-width:1200px){.wall-text{display:none}}
 
 /* about section — brown room lit by gold and a navy shadow */
 .about{display:grid;grid-template-columns:minmax(300px,460px) 1fr;gap:4rem;padding-block:clamp(5rem,12vw,10rem);
@@ -95,11 +96,11 @@
 }
 @media (max-width:900px){.slide{grid-template-columns:1fr}.slide .frame{height:300px}}
 
-/* services section: the olive room, gold above, navy shadow below */
+/* services section: deep brown warmed by an olive glow — olive as light, not wall */
 .services{position:relative;color:var(--cream);padding-block:clamp(4rem,10vw,8rem);
-  background:radial-gradient(46vmax 46vmax at 8% 12%,rgba(206,161,103,.11),transparent 62%),
-             radial-gradient(48vmax 48vmax at 92% 88%,rgba(26,37,48,.55),transparent 62%),
-             var(--room-olive)}
+  background:radial-gradient(52vmax 52vmax at 12% 18%,rgba(108,103,81,.4),transparent 62%),
+             radial-gradient(40vmax 40vmax at 92% 88%,rgba(206,161,103,.09),transparent 60%),
+             #2A1A12}
 .services-inner{position:relative;display:grid;grid-template-columns:minmax(280px,400px) 1fr;gap:4rem}
 .services-copy{display:grid;gap:1.8rem;align-content:start}
 .services-copy h2{font-size:var(--h-section)}
@@ -111,16 +112,18 @@
 .svc:last-child{grid-column:1/-1}
 @media (max-width:900px){.services-inner{grid-template-columns:1fr}.services-grid{grid-template-columns:1fr}}
 
-/* properties section — navy room with terracotta dusk */
-.props{padding-block:clamp(4rem,10vw,8rem);display:grid;gap:2.5rem;
-  background:radial-gradient(44vmax 44vmax at 88% 10%,rgba(117,68,54,.34),transparent 62%),
+/* process — deep brown with a navy dusk; numbers earn their place: a real sequence */
+.process{padding-block:clamp(4rem,10vw,8rem);display:grid;gap:3rem;
+  background:radial-gradient(50vmax 50vmax at 88% 12%,rgba(40,55,74,.55),transparent 62%),
              radial-gradient(38vmax 38vmax at 8% 92%,rgba(206,161,103,.09),transparent 58%),
              var(--room)}
-.props h2{font-size:var(--h-section);color:var(--cream)}
-.props-fallback a{border-bottom:1px solid currentColor}
-.props-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-@media (min-width:901px){.props .props-grid .prop-card:nth-child(2){margin-top:3rem}}
-@media (max-width:900px){.props-grid{grid-template-columns:1fr}}
+.process h2{font-size:var(--h-section);color:var(--cream)}
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;align-items:start}
+.step{display:grid;gap:1rem;padding-top:1.4rem;border-top:1px solid color-mix(in srgb,var(--gold) 45%,transparent)}
+.step>span{font-family:var(--font-display);font-size:clamp(3.2rem,5.5vw,5rem);line-height:1;color:color-mix(in srgb,var(--cream) 12%,transparent)}
+.step h3{font-size:1.5rem;color:var(--gold)}
+.step p{font-size:.95rem;color:color-mix(in srgb,var(--cream) 82%,transparent)}
+@media (max-width:900px){.process-steps{grid-template-columns:1fr}}
 
 /* journal section */
 .journal{padding-block:clamp(4rem,10vw,8rem);display:grid;gap:3rem}
