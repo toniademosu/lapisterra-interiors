@@ -9,4 +9,4 @@ Static site for LapisTerra Interiors (luxury interior design).
 ## Pending
 
 - TODO: replace FORM_ID with real Formspree ID in index.html (contact form action)
-- Footer contact info and Instagram link are placeholders
+- Footer email + Instagram link are placeholders (phone/location real: +1 404 993 2942, Atlanta GA)
