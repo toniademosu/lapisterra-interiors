@@ -34,8 +34,10 @@
 .wall-text p{font-size:.88rem;line-height:1.7;color:var(--sand)}
 /* inscriptions live in the large permanently-empty zone beside each
    left-aligned headline (top-right), or the free band under short copy */
-.wall-mission{left:var(--pad);bottom:1.5rem}
-.wall-promise{right:var(--pad);top:11%;max-width:300px}
+/* note: these are position slots — About's band holds the short Brand
+   Promise; Portfolio's large void holds the long Mission Statement */
+.wall-mission{left:var(--pad);bottom:1.5rem;max-width:340px}
+.wall-promise{right:var(--pad);top:11%;max-width:380px}
 .wall-vision{left:var(--pad);bottom:1.25rem;max-width:380px}
 .wall-strategy{right:var(--pad);top:11%;max-width:300px}
 .wall-story{right:var(--pad);top:11%;max-width:300px}
